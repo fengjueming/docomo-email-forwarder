@@ -78,9 +78,9 @@ DocomoメールからGmailやその他のメールサービスへ自動転送す
 
    その他のメールサービスの場合：
    ```yaml
-   DEST_IMAP_SERVER: あなたのメールサーバーのIMAPサーバー
+   DEST_IMAP_SERVER: メールサーバーのIMAPサーバー
    DEST_IMAP_PORT: IMAPポート番号
-   DEST_EMAIL: ��なたのメール@example.com
+   DEST_EMAIL: のメール@example.com
    DEST_PASSWORD: メールパスワード
    ```
 
