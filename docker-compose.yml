@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   mail-forwarder:
-    container_name: docomo-mail-forwarder
-    image: ghcr.io/fengjueming/docomo-mail-forwarder:latest
+    container_name: docomo-email-forwarder
+    image: ghcr.io/fengjueming/docomo-email-forwarder:latest
     restart: unless-stopped
     environment:
       - SOURCE_IMAP_SERVER=imap.spmode.ne.jp
