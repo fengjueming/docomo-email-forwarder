@@ -8,6 +8,9 @@ RUN apt-get update && \
 
 COPY mail.py .
 
+# Add environment variable for unbuffered output
+ENV PYTHONUNBUFFERED=1
+
 # Add these environment variables to enable legacy SSL behavior
 ENV PYTHONWARNINGS="ignore:ssl-warnings"
 ENV OPENSSL_CONF=/etc/ssl/openssl.cnf
