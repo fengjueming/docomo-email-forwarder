@@ -30,9 +30,6 @@ class EmailForwarder:
         self.imap = None
         self.running = False
         self.ssl_context = ssl.create_default_context()
-        self.ssl_context.options &= ~ssl.OP_NO_RENEGOTIATION
-        self.ssl_context.options &= ~ssl.OP_NO_TLSv1
-        self.ssl_context.options &= ~ssl.OP_NO_TLSv1_1
 
     def connect_imap(self):
         """Establish IMAP connection"""
