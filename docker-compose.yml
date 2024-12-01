@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mail-forwarder:
+    container_name: ghcr.io/fengjueming/docomo-mail-forwarder:latest
+    build: .
+    restart: unless-stopped
+    environment:
+      - SOURCE_IMAP_SERVER=imap.spmode.ne.jp
+      - SOURCE_IMAP_PORT=993
+      - SOURCE_EMAIL=${SOURCE_EMAIL}
+      - SOURCE_PASSWORD=${SOURCE_PASSWORD}
+      - DEST_IMAP_SERVER=imap.gmail.com
+      - DEST_IMAP_PORT=993
+      - DEST_EMAIL=${DEST_EMAIL}
+      - DEST_PASSWORD=${DEST_PASSWORD} 
