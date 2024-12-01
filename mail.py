@@ -10,6 +10,7 @@ from email import encoders
 import threading
 from functools import wraps
 import random
+import os
 
 def retry_on_failure(max_attempts=3, initial_delay=1, max_delay=60, exponential_base=2):
     """
@@ -156,16 +157,16 @@ class EmailForwarder:
 # Example usage
 if __name__ == "__main__":
     # Source server configuration (spmode)
-    SOURCE_IMAP_SERVER = "imap.spmode.ne.jp"
-    SOURCE_IMAP_PORT = 993
-    SOURCE_EMAIL = "fengjueming@gmail.com"
-    SOURCE_PASSWORD = "ZXX_Dy@?k%"
+    SOURCE_IMAP_SERVER = os.getenv("SOURCE_IMAP_SERVER", "imap.spmode.ne.jp")
+    SOURCE_IMAP_PORT = int(os.getenv("SOURCE_IMAP_PORT", "993"))
+    SOURCE_EMAIL = os.getenv("SOURCE_EMAIL")
+    SOURCE_PASSWORD = os.getenv("SOURCE_PASSWORD")
     
     # Destination server configuration (Gmail)
-    DEST_IMAP_SERVER = "imap.gmail.com"
-    DEST_IMAP_PORT = 993
-    DEST_EMAIL = "fengjueming@gmail.com"
-    DEST_PASSWORD = "kujzlbksmaynlknz"  # Gmail requires using an app-specific password
+    DEST_IMAP_SERVER = os.getenv("DEST_IMAP_SERVER", "imap.gmail.com")
+    DEST_IMAP_PORT = int(os.getenv("DEST_IMAP_PORT", "993"))
+    DEST_EMAIL = os.getenv("DEST_EMAIL")
+    DEST_PASSWORD = os.getenv("DEST_PASSWORD")
     
     forwarder = EmailForwarder(
         SOURCE_IMAP_SERVER, SOURCE_IMAP_PORT, SOURCE_EMAIL, SOURCE_PASSWORD,
